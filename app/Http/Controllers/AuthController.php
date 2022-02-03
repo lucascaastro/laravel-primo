@@ -41,7 +41,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
             return redirect()->route('dashboard');
         }
-        
+
         return back()->withError('Usuário ou senha incorretos');
     }
 
