@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
+use App\Jobs\ConvertCelsius;
 use App\Jobs\FindMaxPrime;
 
 /*
@@ -38,4 +39,10 @@ Route::get('/notifications', function () {
     foreach ($user->unreadnotifications as $noti) {
         echo '<h3>' . $noti->data['description'] . '</h3>';
     }
+});
+
+Route::get('/celsius/{farenheit}', function ($farenheit) {
+    ConvertCelsius::dispatch($farenheit, auth()->id());
+
+    return 'O cálculo será realizado em fila';
 });
