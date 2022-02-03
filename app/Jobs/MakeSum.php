@@ -13,8 +13,8 @@ use Illuminate\Contracts\Queue\ShouldBeUnique;
 class MakeSum implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    public $num1;
-    public $num2;
+    protected $num1;
+    protected $num2;
     /**
      * Create a new job instance.
      *
