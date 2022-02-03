@@ -35,8 +35,6 @@ class MakeSum implements ShouldQueue
     {
         $soma = $this->num1 + $this->num2;
 
-        if ($soma['success']) {
-            logger()->info('Soma = ' . $soma);
-        }
+        logger()->info('Soma = ' . $soma);
     }
 }
