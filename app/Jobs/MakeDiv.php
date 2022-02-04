@@ -15,9 +15,9 @@ class MakeDiv implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $num1;
-    protected $num2;
-    protected $id;
+    public $num1;
+    public $num2;
+    public $id;
     /**
      * Create a new job instance.
      *
