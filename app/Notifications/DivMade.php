@@ -11,14 +11,17 @@ class DivMade extends Notification
 {
     use Queueable;
 
+    public $title;
+    public $description;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($title, $description)
     {
-        //
+        $this->title = $title;
+        $this->description = $description;
     }
 
     /**
