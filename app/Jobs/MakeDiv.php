@@ -18,6 +18,7 @@ class MakeDiv implements ShouldQueue
     public $num1;
     public $num2;
     public $id;
+
     /**
      * Create a new job instance.
      *
@@ -27,7 +28,7 @@ class MakeDiv implements ShouldQueue
     {
         $this->num1 = $num1;
         $this->num2 = $num2;
-        $this->id = $id;
+        $this->id = auth()->$id;
     }
 
     /**
