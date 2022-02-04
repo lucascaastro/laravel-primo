@@ -18,7 +18,6 @@ class MakeDiv implements ShouldQueue
     public $num1;
     public $num2;
     public $id;
-
     /**
      * Create a new job instance.
      *
@@ -28,7 +27,7 @@ class MakeDiv implements ShouldQueue
     {
         $this->num1 = $num1;
         $this->num2 = $num2;
-        $this->user = auth()->$id;
+        $this->id = $id;
     }
 
     /**
@@ -39,14 +38,14 @@ class MakeDiv implements ShouldQueue
     public function handle()
     {
         $div = $this->num1 / $this->num2;
+        $user = User::find($this->userId);
         if ($this->num2 == 0) {
-            $this->user->notify(new DivMade(
+            $user->notify(new DivMade(
                 'Erro',
                 'Divisão por zero'
             ));
         }
-
-        $this->user->notify(new DivMade(
+        $user->notify(new DivMade(
             'Sucesso',
             'Div = ' . $div
         ));

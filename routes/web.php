@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 use App\Jobs\ConvertCelsius;
 use App\Jobs\FindMaxPrime;
+use App\Jobs\MakeDiv;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,12 @@ Route::get('/notifications', function () {
 
 Route::get('/celsius/{farenheit}', function ($farenheit) {
     ConvertCelsius::dispatch($farenheit, auth()->id());
+
+    return 'O cálculo será realizado em fila';
+});
+
+Route::get('/make/div/{num1}/{num2}', function ($num1, $num2) {
+    MakeDiv::dispatch($num1, $num2, auth()->id());
 
     return 'O cálculo será realizado em fila';
 });
