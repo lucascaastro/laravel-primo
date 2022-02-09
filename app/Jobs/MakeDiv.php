@@ -39,12 +39,12 @@ class MakeDiv implements ShouldQueue
     {
         $user = User::find($this->id);
 
-        if ($this->num2 == 0) {
-
+        if ($this->num2 === 0) {
             $user->notify(new DivMade(
                 'Erro',
                 'Divisão por zero'
             ));
+            return;
         }
         $div = $this->num1 / $this->num2;
         $user->notify(new DivMade(
