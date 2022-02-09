@@ -37,7 +37,7 @@ class MakeDiv implements ShouldQueue
      */
     public function handle()
     {
-        $user = User::find($this->userId);
+        $user = User::find($this->id);
 
         if ($this->num2 === 0) {
             $user->notify(new DivMade(
